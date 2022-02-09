@@ -1,14 +1,13 @@
 import { Route, Switch } from "react-router-dom";
 
-import MainNavigation from "./components/layout/MainNavigation";
 import AllMeetupsPage from "./pages/AllMeetups";
 import FavoritesPage from "./pages/Favorites";
 import NewMeetupPage from "./pages/NewMeetup";
+import Layout from "./components/layout/Layout";
 
 function App() {
   return (
-    <div>
-      <MainNavigation />
+    <Layout>
       <Switch> {/* Switch tells react that only one of those should be
       rendered. (The first match) */}
         <Route path="/" exact> {/* Need 'exact' otherwise this '/' will
@@ -24,7 +23,7 @@ function App() {
           <FavoritesPage />
         </Route>
       </Switch>
-    </div>
+    </Layout>
   );
 }
 
