@@ -1,12 +1,27 @@
-import Todo from "./components/Todo";
+import { Route, Switch } from "react-router-dom";
+
+import AllMeetupsPage from "./pages/AllMeetupsj";
+import FavoritesPage from "./pages/Favorites";
+import NewMeetupPage from "./pages/NewMeetup";
 
 function App() {
   return (
     <div>
-      <h1>My Tools</h1>
-      <Todo text="Lear Reac" />
-      <Todo text="Master Reac" />
-      <Todo text="Explore the full React course" />
+      <Switch> {/* Switch tells react that only one of those should be
+      rendered. (The first match) */}
+        <Route path="/" exact> {/* Need 'exact' otherwise this '/' will
+        always match first, and never render the others */}
+          <AllMeetupsPage />
+        </Route>
+
+        <Route path="/new-meetup">
+          <NewMeetupPage />
+        </Route>
+
+        <Route path="/favorites">
+          <FavoritesPage />
+        </Route>
+      </Switch>
     </div>
   );
 }
