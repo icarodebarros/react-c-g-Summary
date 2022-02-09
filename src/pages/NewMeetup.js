@@ -1,3 +1,5 @@
+import { useHistory } from "react-router-dom";
+
 import NewMeetupForm from "../components/meetups/NewMeetupForm";
 
 function NewMeetupPage() {
@@ -6,6 +8,8 @@ function NewMeetupPage() {
    */
   const URL_BASE = "<firebase url>";
 
+  const history = useHistory();
+
   function addMeetupHandler(meetupData) {
     fetch(`${URL_BASE}/meetups.json`, {
       method: "POST",
@@ -13,6 +17,8 @@ function NewMeetupPage() {
       headers: {
         "Content-Type": "application/json",
       },
+    }).then(() => {
+      history.replace('/');
     });
   }
 
