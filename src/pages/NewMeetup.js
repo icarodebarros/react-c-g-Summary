@@ -1,17 +1,13 @@
 import { useHistory } from "react-router-dom";
 
+import ENV from '../environment/environment';
 import NewMeetupForm from "../components/meetups/NewMeetupForm";
 
 function NewMeetupPage() {
-  /**
-   * Using Firebase (Realtime Database) on test mode
-   */
-  const URL_BASE = "<firebase url>";
-
   const history = useHistory();
 
   function addMeetupHandler(meetupData) {
-    fetch(`${URL_BASE}/meetups.json`, {
+    fetch(`${ENV.URL_BASE}/meetups.json`, {
       method: "POST",
       body: JSON.stringify(meetupData),
       headers: {
