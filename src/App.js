@@ -1,5 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 
+import MainNavigation from "./components/layout/MainNavigation";
 import AllMeetupsPage from "./pages/AllMeetupsj";
 import FavoritesPage from "./pages/Favorites";
 import NewMeetupPage from "./pages/NewMeetup";
@@ -7,6 +8,7 @@ import NewMeetupPage from "./pages/NewMeetup";
 function App() {
   return (
     <div>
+      <MainNavigation />
       <Switch> {/* Switch tells react that only one of those should be
       rendered. (The first match) */}
         <Route path="/" exact> {/* Need 'exact' otherwise this '/' will
